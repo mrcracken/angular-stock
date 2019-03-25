@@ -1,0 +1,19 @@
+<div class="mdl-card stock-card mdl-shadow--2dp" [ngClass]="{increase: isPositive(), decrease: isNegative()}" style="width: 100%;">
+    <span>
+      <div class="mdl-card__title">
+        <h4 style="color: #fff; margin: 0">
+          {{stock?.symbol?.toUpperCase()}}<br />
+          {{stock?.lastTradePriceOnly | currency:'USD':'symbol':'.2'}}<br />
+          {{stock?.change | currency:'USD':'symbol':'.2'}} ({{stock?.changeInPercent | percent:'.2'}})
+          <!-- 
+          The next interpolation shows the last trade price and adds another feature called pipes,
+          which are added directly into the expression to format the output. 
+          The interpola-tion expression is extended with a pipe symbol, |, 
+          and then a pipe is named and option-ally configured with values separated with the colon : symbol. 
+          The price value comes back as a normal float (like 111.8), which is not the same format as currency, 
+          which should appear like $111.80 
+          -->
+        </h4>
+      </div>
+    </span>
+  </div>
